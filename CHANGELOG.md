@@ -24,6 +24,12 @@ and the project follows [Semantic Versioning](https://semver.org/).
   7x variants and the Arctis Nova 5 / 5X are included from HeadsetControl's device
   list but not tested; new models with the same protocol are one line in
   `providers/steelseries.py`.
+- Corsair Virtuoso RGB Wireless support through its 2.4 GHz dongle (1B1C:0A42), without
+  iCUE (and alongside it), over Corsair's "Bragi" protocol on usage page 0xFF42: the
+  headset behind the dongle (address 0x09) answers property 0x0F with the level in
+  tenths of a percent and 0x10 with the charging state. The headset reports its own
+  PID as 0A41, which keys the icon, so the USB cable (address 0x08 on 0A41, included
+  but not tested) should share it.
 - Audeze Maxwell support, over the 2.4 GHz dongle (3329:4B19) and the USB-C cable
   (3329:4B1A), reading the vendor collection (usage page 0xFF13) with the sequence
   HeadsetControl uses: no Audeze HQ needed, and it works alongside it. The battery is
